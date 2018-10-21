@@ -33,7 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.FirstMassTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.InputParametersGroupBox = new System.Windows.Forms.GroupBox();
             this.SecondSpringStiffnessUnitLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SecondMassUnitLabel = new System.Windows.Forms.Label();
@@ -47,14 +47,28 @@
             this.SecondMassTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.PlotButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.groupBox1.SuspendLayout();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ICVelocity2UnitLabel = new System.Windows.Forms.Label();
+            this.ICDisplacement2UnitLabel = new System.Windows.Forms.Label();
+            this.ICVelocity1UnitLabel = new System.Windows.Forms.Label();
+            this.ICDisplacement1UnitLabel = new System.Windows.Forms.Label();
+            this.ICVelocity2Label = new System.Windows.Forms.Label();
+            this.ICDisplacement2Label = new System.Windows.Forms.Label();
+            this.ICVelocity1Label = new System.Windows.Forms.Label();
+            this.ICDisplacement1Label = new System.Windows.Forms.Label();
+            this.ICVelocity2TextBox = new System.Windows.Forms.TextBox();
+            this.ICDisplacement2TextBox = new System.Windows.Forms.TextBox();
+            this.ICVelocity1TextBox = new System.Windows.Forms.TextBox();
+            this.ICDisplacement1TextBox = new System.Windows.Forms.TextBox();
+            this.InputParametersGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // FirstMassTextBox
@@ -64,26 +78,26 @@
             this.FirstMassTextBox.Size = new System.Drawing.Size(100, 20);
             this.FirstMassTextBox.TabIndex = 0;
             // 
-            // groupBox1
+            // InputParametersGroupBox
             // 
-            this.groupBox1.Controls.Add(this.SecondSpringStiffnessUnitLabel);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.SecondMassUnitLabel);
-            this.groupBox1.Controls.Add(this.FirstMassUnit);
-            this.groupBox1.Controls.Add(this.SecondSpringStiffnessLabel);
-            this.groupBox1.Controls.Add(this.FirstSpringStiffnessLabel);
-            this.groupBox1.Controls.Add(this.SecondMassLabel);
-            this.groupBox1.Controls.Add(this.Mass1Label);
-            this.groupBox1.Controls.Add(this.SecondSpringStiffness);
-            this.groupBox1.Controls.Add(this.FirstSpringStiffnessTextBox);
-            this.groupBox1.Controls.Add(this.SecondMassTextBox);
-            this.groupBox1.Controls.Add(this.FirstMassTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1236, 64);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.InputParametersGroupBox.Controls.Add(this.SecondSpringStiffnessUnitLabel);
+            this.InputParametersGroupBox.Controls.Add(this.label4);
+            this.InputParametersGroupBox.Controls.Add(this.SecondMassUnitLabel);
+            this.InputParametersGroupBox.Controls.Add(this.FirstMassUnit);
+            this.InputParametersGroupBox.Controls.Add(this.SecondSpringStiffnessLabel);
+            this.InputParametersGroupBox.Controls.Add(this.FirstSpringStiffnessLabel);
+            this.InputParametersGroupBox.Controls.Add(this.SecondMassLabel);
+            this.InputParametersGroupBox.Controls.Add(this.Mass1Label);
+            this.InputParametersGroupBox.Controls.Add(this.SecondSpringStiffness);
+            this.InputParametersGroupBox.Controls.Add(this.FirstSpringStiffnessTextBox);
+            this.InputParametersGroupBox.Controls.Add(this.SecondMassTextBox);
+            this.InputParametersGroupBox.Controls.Add(this.FirstMassTextBox);
+            this.InputParametersGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.InputParametersGroupBox.Name = "InputParametersGroupBox";
+            this.InputParametersGroupBox.Size = new System.Drawing.Size(1236, 64);
+            this.InputParametersGroupBox.TabIndex = 1;
+            this.InputParametersGroupBox.TabStop = false;
+            this.InputParametersGroupBox.Text = "System Input Parameter";
             // 
             // SecondSpringStiffnessUnitLabel
             // 
@@ -190,10 +204,10 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 82);
+            this.tabControl1.Location = new System.Drawing.Point(12, 167);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1236, 669);
+            this.tabControl1.Size = new System.Drawing.Size(1236, 584);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -202,10 +216,31 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1228, 643);
+            this.tabPage1.Size = new System.Drawing.Size(1228, 558);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Body1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(1216, 546);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "DisplacementTitle";
+            title1.Text = "Displacement";
+            this.chart1.Titles.Add(title1);
             // 
             // tabPage2
             // 
@@ -237,26 +272,134 @@
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
             // 
-            // chart1
+            // groupBox2
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 6);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Body1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(1216, 631);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "DisplacementTitle";
-            title1.Text = "Displacement";
-            this.chart1.Titles.Add(title1);
+            this.groupBox2.Controls.Add(this.ICVelocity2UnitLabel);
+            this.groupBox2.Controls.Add(this.ICDisplacement2UnitLabel);
+            this.groupBox2.Controls.Add(this.ICVelocity1UnitLabel);
+            this.groupBox2.Controls.Add(this.ICDisplacement1UnitLabel);
+            this.groupBox2.Controls.Add(this.ICVelocity2Label);
+            this.groupBox2.Controls.Add(this.ICDisplacement2Label);
+            this.groupBox2.Controls.Add(this.ICVelocity1Label);
+            this.groupBox2.Controls.Add(this.ICDisplacement1Label);
+            this.groupBox2.Controls.Add(this.ICVelocity2TextBox);
+            this.groupBox2.Controls.Add(this.ICDisplacement2TextBox);
+            this.groupBox2.Controls.Add(this.ICVelocity1TextBox);
+            this.groupBox2.Controls.Add(this.ICDisplacement1TextBox);
+            this.groupBox2.Location = new System.Drawing.Point(12, 82);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1236, 64);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox1";
+            // 
+            // ICVelocity2UnitLabel
+            // 
+            this.ICVelocity2UnitLabel.AutoSize = true;
+            this.ICVelocity2UnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICVelocity2UnitLabel.Location = new System.Drawing.Point(1199, 25);
+            this.ICVelocity2UnitLabel.Name = "ICVelocity2UnitLabel";
+            this.ICVelocity2UnitLabel.Size = new System.Drawing.Size(30, 16);
+            this.ICVelocity2UnitLabel.TabIndex = 2;
+            this.ICVelocity2UnitLabel.Text = "m/s";
+            // 
+            // ICDisplacement2UnitLabel
+            // 
+            this.ICDisplacement2UnitLabel.AutoSize = true;
+            this.ICDisplacement2UnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICDisplacement2UnitLabel.Location = new System.Drawing.Point(838, 24);
+            this.ICDisplacement2UnitLabel.Name = "ICDisplacement2UnitLabel";
+            this.ICDisplacement2UnitLabel.Size = new System.Drawing.Size(30, 16);
+            this.ICDisplacement2UnitLabel.TabIndex = 2;
+            this.ICDisplacement2UnitLabel.Text = "mm";
+            // 
+            // ICVelocity1UnitLabel
+            // 
+            this.ICVelocity1UnitLabel.AutoSize = true;
+            this.ICVelocity1UnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICVelocity1UnitLabel.Location = new System.Drawing.Point(466, 25);
+            this.ICVelocity1UnitLabel.Name = "ICVelocity1UnitLabel";
+            this.ICVelocity1UnitLabel.Size = new System.Drawing.Size(30, 16);
+            this.ICVelocity1UnitLabel.TabIndex = 2;
+            this.ICVelocity1UnitLabel.Text = "m/s";
+            // 
+            // ICDisplacement1UnitLabel
+            // 
+            this.ICDisplacement1UnitLabel.AutoSize = true;
+            this.ICDisplacement1UnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICDisplacement1UnitLabel.Location = new System.Drawing.Point(215, 25);
+            this.ICDisplacement1UnitLabel.Name = "ICDisplacement1UnitLabel";
+            this.ICDisplacement1UnitLabel.Size = new System.Drawing.Size(30, 16);
+            this.ICDisplacement1UnitLabel.TabIndex = 2;
+            this.ICDisplacement1UnitLabel.Text = "mm";
+            // 
+            // ICVelocity2Label
+            // 
+            this.ICVelocity2Label.AutoSize = true;
+            this.ICVelocity2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICVelocity2Label.Location = new System.Drawing.Point(898, 25);
+            this.ICVelocity2Label.Name = "ICVelocity2Label";
+            this.ICVelocity2Label.Size = new System.Drawing.Size(66, 16);
+            this.ICVelocity2Label.TabIndex = 1;
+            this.ICVelocity2Label.Text = "Velocity 2";
+            // 
+            // ICDisplacement2Label
+            // 
+            this.ICDisplacement2Label.AutoSize = true;
+            this.ICDisplacement2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICDisplacement2Label.Location = new System.Drawing.Point(565, 25);
+            this.ICDisplacement2Label.Name = "ICDisplacement2Label";
+            this.ICDisplacement2Label.Size = new System.Drawing.Size(101, 16);
+            this.ICDisplacement2Label.TabIndex = 1;
+            this.ICDisplacement2Label.Text = "Displacement 2";
+            // 
+            // ICVelocity1Label
+            // 
+            this.ICVelocity1Label.AutoSize = true;
+            this.ICVelocity1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICVelocity1Label.Location = new System.Drawing.Point(263, 25);
+            this.ICVelocity1Label.Name = "ICVelocity1Label";
+            this.ICVelocity1Label.Size = new System.Drawing.Size(66, 16);
+            this.ICVelocity1Label.TabIndex = 1;
+            this.ICVelocity1Label.Text = "Velocity 1";
+            // 
+            // ICDisplacement1Label
+            // 
+            this.ICDisplacement1Label.AutoSize = true;
+            this.ICDisplacement1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ICDisplacement1Label.Location = new System.Drawing.Point(2, 27);
+            this.ICDisplacement1Label.Name = "ICDisplacement1Label";
+            this.ICDisplacement1Label.Size = new System.Drawing.Size(101, 16);
+            this.ICDisplacement1Label.TabIndex = 1;
+            this.ICDisplacement1Label.Text = "Displacement 1";
+            // 
+            // ICVelocity2TextBox
+            // 
+            this.ICVelocity2TextBox.Location = new System.Drawing.Point(1093, 23);
+            this.ICVelocity2TextBox.Name = "ICVelocity2TextBox";
+            this.ICVelocity2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.ICVelocity2TextBox.TabIndex = 0;
+            // 
+            // ICDisplacement2TextBox
+            // 
+            this.ICDisplacement2TextBox.Location = new System.Drawing.Point(732, 24);
+            this.ICDisplacement2TextBox.Name = "ICDisplacement2TextBox";
+            this.ICDisplacement2TextBox.Size = new System.Drawing.Size(100, 20);
+            this.ICDisplacement2TextBox.TabIndex = 0;
+            // 
+            // ICVelocity1TextBox
+            // 
+            this.ICVelocity1TextBox.Location = new System.Drawing.Point(360, 23);
+            this.ICVelocity1TextBox.Name = "ICVelocity1TextBox";
+            this.ICVelocity1TextBox.Size = new System.Drawing.Size(100, 20);
+            this.ICVelocity1TextBox.TabIndex = 0;
+            // 
+            // ICDisplacement1TextBox
+            // 
+            this.ICDisplacement1TextBox.Location = new System.Drawing.Point(109, 24);
+            this.ICDisplacement1TextBox.Name = "ICDisplacement1TextBox";
+            this.ICDisplacement1TextBox.Size = new System.Drawing.Size(100, 20);
+            this.ICDisplacement1TextBox.TabIndex = 0;
             // 
             // Form1
             // 
@@ -266,14 +409,17 @@
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.PlotButton);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.InputParametersGroupBox);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.InputParametersGroupBox.ResumeLayout(false);
+            this.InputParametersGroupBox.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -281,7 +427,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox FirstMassTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox InputParametersGroupBox;
         private System.Windows.Forms.Label Mass1Label;
         private System.Windows.Forms.Label SecondSpringStiffnessUnitLabel;
         private System.Windows.Forms.Label label4;
@@ -299,6 +445,19 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button PlotButton;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label ICVelocity2UnitLabel;
+        private System.Windows.Forms.Label ICDisplacement2UnitLabel;
+        private System.Windows.Forms.Label ICVelocity1UnitLabel;
+        private System.Windows.Forms.Label ICDisplacement1UnitLabel;
+        private System.Windows.Forms.Label ICVelocity2Label;
+        private System.Windows.Forms.Label ICDisplacement2Label;
+        private System.Windows.Forms.Label ICVelocity1Label;
+        private System.Windows.Forms.Label ICDisplacement1Label;
+        private System.Windows.Forms.TextBox ICVelocity2TextBox;
+        private System.Windows.Forms.TextBox ICDisplacement2TextBox;
+        private System.Windows.Forms.TextBox ICVelocity1TextBox;
+        private System.Windows.Forms.TextBox ICDisplacement1TextBox;
     }
 }
 
