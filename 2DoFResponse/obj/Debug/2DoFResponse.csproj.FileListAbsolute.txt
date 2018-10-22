@@ -1,0 +1,13 @@
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\2DoFResponse.csprojAssemblyReference.cache
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\_2DoF.Form1.resources
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\EigenValuesAndVectors.Properties.Resources.resources
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\2DoFResponse.csproj.GenerateResource.cache
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\2DoFResponse.csproj.CoreCompileInputs.cache
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\bin\Debug\EigenValuesAndVectors.exe.config
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\bin\Debug\EigenValuesAndVectors.exe
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\bin\Debug\EigenValuesAndVectors.pdb
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\bin\Debug\MathNet.Numerics.dll
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\bin\Debug\MathNet.Numerics.xml
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\2DoFResponse.csproj.CopyComplete
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\EigenValuesAndVectors.exe
+C:\Users\Aditya\Documents\VS\2DoF\2DoFResponse\obj\Debug\EigenValuesAndVectors.pdb

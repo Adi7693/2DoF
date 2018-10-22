@@ -11,12 +11,14 @@ using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace _2DoF
 {
-    class InputData
+    public class InputData
     {
 
         private bool MassMatrixNeedsToRecalculate;
         private bool StiffnessMatrixNeedsToRecalculate;
-        private bool ResponseNeedsToRecalculate;
+        private bool Body1ResponseNeedsToRecalculate;
+        private bool Body2ResponseNeedsToRecalculate;
+        private bool TimeNeedsToRecalculate;
 
         public InputData()
         {
@@ -24,10 +26,70 @@ namespace _2DoF
             Mass2 = 0.0;
             SpringStiffness1 = 0.0;
             SpringStiffness2 = 0.0;
+            StartTime = 0.0;
+            EndTime = 0.0;
+            TimeStep = 0.0;
 
-
+            TimeNeedsToRecalculate = false;
             MassMatrixNeedsToRecalculate = false;
             StiffnessMatrixNeedsToRecalculate = false;
+            Body1ResponseNeedsToRecalculate = false;
+            Body2ResponseNeedsToRecalculate = false;
+        }
+
+
+        private double _startTime;
+        public double StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                if (!value.Equals(_startTime))
+                {
+                    _startTime = value;
+
+                    TimeNeedsToRecalculate = true;
+                }
+            }
+        }
+
+        private double _timeStep;
+        public double TimeStep
+        {
+            get
+            {
+                return _timeStep;
+            }
+            set
+            {
+                if (!value.Equals(_timeStep))
+                {
+                    _timeStep = value;
+
+                    TimeNeedsToRecalculate = true;
+                }
+            }
+        }
+
+        private double _endTime;
+        public double EndTime
+        {
+            get
+            {
+                return _endTime;
+            }
+            set
+            {
+                if (!value.Equals(_endTime))
+                {
+                    _endTime = value;
+
+                    TimeNeedsToRecalculate = true;
+                }
+            }
         }
 
         private double mass1;
@@ -45,9 +107,9 @@ namespace _2DoF
                 {
                     mass1 = value;
 
-
-                    MassMatrix[0, 0] = mass1;
                     MassMatrixNeedsToRecalculate = true;
+                    MassMatrix[0, 0] = mass1;
+                    
 
                 }
             }
@@ -68,9 +130,9 @@ namespace _2DoF
                 {
                     mass2 = value;
 
-
-                    MassMatrix[1, 1] = mass2;
                     MassMatrixNeedsToRecalculate = true;
+                    MassMatrix[1, 1] = mass2;
+                    
                 }
             }
         }
@@ -130,10 +192,11 @@ namespace _2DoF
 
             set
             {
-                if(!value.Equals(initialConditionX1))
+                if (!value.Equals(initialConditionX1))
                 {
                     initialConditionX1 = value;
-                    ResponseNeedsToRecalculate = true;
+                    Body1ResponseNeedsToRecalculate = true;
+                    Body2ResponseNeedsToRecalculate = true;
 
                 }
 
@@ -153,10 +216,11 @@ namespace _2DoF
 
             set
             {
-                if(!value.Equals(initialConditionXDot1))
+                if (!value.Equals(initialConditionXDot1))
                 {
                     initialConditionXDot1 = value;
-                    ResponseNeedsToRecalculate = true;
+                    Body1ResponseNeedsToRecalculate = true;
+                    Body2ResponseNeedsToRecalculate = true;
                 }
             }
         }
@@ -174,10 +238,11 @@ namespace _2DoF
 
             set
             {
-                if(!value.Equals(initialConditionX2))
+                if (!value.Equals(initialConditionX2))
                 {
                     initialConditionX2 = value;
-                    ResponseNeedsToRecalculate = true;
+                    Body1ResponseNeedsToRecalculate = true;
+                    Body2ResponseNeedsToRecalculate = true;
                 }
             }
         }
@@ -195,118 +260,16 @@ namespace _2DoF
 
             set
             {
-                if(!value.Equals(initialConditionXDot2))
+                if (!value.Equals(initialConditionXDot2))
                 {
                     initialConditionXDot2 = value;
-                    ResponseNeedsToRecalculate = true;
+                    Body1ResponseNeedsToRecalculate = true;
+                    Body2ResponseNeedsToRecalculate = true;
                 }
             }
         }
 
-
-
-        #region TestCode
-
-        //private Matrix<double> massMatrix;
-
-        //public Matrix<double> MassMatrix
-        //{
-        //    get
-        //    {
-        //        if (massMatrix == null)
-        //        {
-        //            massMatrix = Matrix<double>.Build.Dense(2, 2);
-        //        }
-
-        //        massMatrix[0, 0] = Mass1;
-        //        massMatrix[1, 1] = Mass2;
-
-        //        return massMatrix;
-        //    }
-        //}
-
-        //private Matrix<double> stiffnessMatrix;
-
-        //public Matrix<double> StiffnessMatrix
-        //{
-        //    get
-        //    {
-        //        if (stiffnessMatrix == null)
-        //        {
-        //            stiffnessMatrix = Matrix<double>.Build.Dense(2, 2);
-        //        }
-
-        //        StiffnessMatrix[0, 0] = SpringStiffness1 + SpringStiffness2;
-        //        StiffnessMatrix[0, 1] = -SpringStiffness2;
-        //        StiffnessMatrix[1, 0] = -SpringStiffness2;
-        //        StiffnessMatrix[1, 1] = SpringStiffness2;
-
-        //        return stiffnessMatrix;
-
-
-        //    }
-        //}
-
-
-        //public Matrix<double> A
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //           return MassMatrix.Inverse() * StiffnessMatrix;
-        //        }
-        //        catch
-        //        {
-
-        //        }
-
-        //        return Matrix<double>.Build.Dense(2, 2);
-        //    }
-        //}
-
-
-        //public Vector<Complex> EigenValue
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            Evd<double> eigen = A.Evd();
-        //            Vector<Complex> eigenValue = eigen.EigenValues;
-        //            return eigenValue;
-        //        }
-
-        //        catch
-        //        {
-
-        //        }
-
-        //        return Vector<Complex>.Build.Dense(2);
-        //    }
-        //}
-
-        //public Matrix<double> EigenVector
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            Evd<double> eigen = A.Evd();
-        //            Matrix<double> eigneVector = eigen.EigenVectors;
-        //        }
-
-        //        catch
-        //        {
-
-        //        }
-
-        //        return Matrix<double>.Build.Dense(2, 2);
-        //    }
-        //}
-        #endregion
-
-        private Matrix<double> massMatrix;
+        private Matrix<double> massMatrix=null;
 
         public Matrix<double> MassMatrix
         {
@@ -428,6 +391,8 @@ namespace _2DoF
                 double r1 = a21 / a11;
                 double R1 = Math.Round(r1, 4);
 
+                
+
 
                 return R1;
             }
@@ -509,7 +474,96 @@ namespace _2DoF
                 double deno = ((AmplitudeRatio1 * InitialConditionX1) - InitialConditionX2) * NaturalFrequency2;
                 return Math.Round(-Math.Atan(nume / deno), 4);
             }
+        }     
+
+        public List<double> TimeIntervals { get; private set; }
+
+        public List<double> Body1Displacement { get; private set; }
+
+        public List<double> Body2Displacement { get; private set; }
+
+        private void TimeCalculate()
+        {
+            if (TimeNeedsToRecalculate)
+            {
+                if (TimeIntervals == null)
+                {
+                    TimeIntervals = new List<double>();
+                }
+
+                TimeIntervals.Clear();
+
+                for (double i = StartTime; i <= EndTime + TimeStep / 2.0; i += TimeStep)
+                {
+                    double interval = Math.Round(i, 6);
+                    TimeIntervals.Add(interval);
+                }
+
+                TimeNeedsToRecalculate = false;
+            }
         }
+
+        
+
+        private void Body1Calculate()
+        {
+            if (Body1ResponseNeedsToRecalculate)
+            {
+                if(Body1Displacement==null)
+                {
+                    Body1Displacement = new List<double>();
+                }
+            }
+
+            Body1Displacement.Clear();
+
+            foreach (double item in TimeIntervals)
+            {
+                double firstTerm = A1 * Math.Cos((NaturalFrequency1 * item) - Phy1);
+                double secondTerm = A2 * Math.Cos((NaturalFrequency2 * item) - Phy2);
+                double x1 = firstTerm + secondTerm;
+                Body1Displacement.Add(x1);
+            }
+
+            Body1ResponseNeedsToRecalculate = false;
+
+        }
+
+        
+        private void Body2Calculate()
+        {
+            if(Body2ResponseNeedsToRecalculate)
+            {
+                if(Body2Displacement==null)
+                {
+                    Body2Displacement = new List<double>();
+                }
+            }
+
+            Body2Displacement.Clear();
+
+            foreach (double item in TimeIntervals)
+            {
+                double firstTerm = A1 *AmplitudeRatio1* Math.Cos((NaturalFrequency1 * item) - Phy1);
+                double secondTerm = A2 *AmplitudeRatio2* Math.Cos((NaturalFrequency2 * item) - Phy2);
+                double x2 = firstTerm + secondTerm;
+                Body2Displacement.Add(x2);
+            }
+
+            Body2ResponseNeedsToRecalculate = false;
+
+        }
+
+        public void Calculate()
+        {
+            TimeCalculate();
+            Body1Calculate();
+            Body2Calculate();
+        }
+
+
+
+
 
     }
 }
