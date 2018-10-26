@@ -45,7 +45,7 @@
             this.SecondMassLabel = new System.Windows.Forms.Label();
             this.SecondSpringStiffnessLabel = new System.Windows.Forms.Label();
             this.FirstMassUnit = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.FirstSpringStiffnessUnitLabel = new System.Windows.Forms.Label();
             this.FirstSpringStiffnessTextBox = new System.Windows.Forms.TextBox();
             this.FirstSpringStiffnessLabel = new System.Windows.Forms.Label();
             this.SecondMassUnitLabel = new System.Windows.Forms.Label();
@@ -78,12 +78,6 @@
             this.ICDisplacement2Label = new System.Windows.Forms.Label();
             this.ICVelocity1UnitLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.InputParametersGroupBox.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,7 +106,7 @@
             this.InputParametersGroupBox.Controls.Add(this.SecondSpringStiffnessLabel);
             this.InputParametersGroupBox.Controls.Add(this.FirstMassUnit);
             this.InputParametersGroupBox.Controls.Add(this.FirstMassTextBox);
-            this.InputParametersGroupBox.Controls.Add(this.label4);
+            this.InputParametersGroupBox.Controls.Add(this.FirstSpringStiffnessUnitLabel);
             this.InputParametersGroupBox.Controls.Add(this.FirstSpringStiffnessTextBox);
             this.InputParametersGroupBox.Controls.Add(this.FirstSpringStiffnessLabel);
             this.InputParametersGroupBox.Controls.Add(this.SecondMassUnitLabel);
@@ -130,9 +124,9 @@
             this.SecondSpringStiffnessUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SecondSpringStiffnessUnitLabel.Location = new System.Drawing.Point(268, 115);
             this.SecondSpringStiffnessUnitLabel.Name = "SecondSpringStiffnessUnitLabel";
-            this.SecondSpringStiffnessUnitLabel.Size = new System.Drawing.Size(33, 16);
+            this.SecondSpringStiffnessUnitLabel.Size = new System.Drawing.Size(44, 16);
             this.SecondSpringStiffnessUnitLabel.TabIndex = 2;
-            this.SecondSpringStiffnessUnitLabel.Text = "N/m";
+            this.SecondSpringStiffnessUnitLabel.Text = "N/mm";
             // 
             // Mass1Label
             // 
@@ -192,15 +186,15 @@
             this.FirstMassUnit.TabIndex = 2;
             this.FirstMassUnit.Text = "Kg";
             // 
-            // label4
+            // FirstSpringStiffnessUnitLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(268, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "N/m";
+            this.FirstSpringStiffnessUnitLabel.AutoSize = true;
+            this.FirstSpringStiffnessUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstSpringStiffnessUnitLabel.Location = new System.Drawing.Point(268, 87);
+            this.FirstSpringStiffnessUnitLabel.Name = "FirstSpringStiffnessUnitLabel";
+            this.FirstSpringStiffnessUnitLabel.Size = new System.Drawing.Size(44, 16);
+            this.FirstSpringStiffnessUnitLabel.TabIndex = 2;
+            this.FirstSpringStiffnessUnitLabel.Text = "N/mm";
             // 
             // FirstSpringStiffnessTextBox
             // 
@@ -243,12 +237,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.maskedTextBox2);
-            this.tabPage1.Controls.Add(this.maskedTextBox1);
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.TimeData);
             this.tabPage1.Controls.Add(this.CalculateButton);
             this.tabPage1.Controls.Add(this.chart2);
@@ -570,54 +558,6 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(168, 467);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(168, 493);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 5;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(168, 519);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 470);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 496);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "label1";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 522);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "label1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,7 +570,6 @@
             this.InputParametersGroupBox.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.TimeData.ResumeLayout(false);
             this.TimeData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
@@ -647,7 +586,7 @@
         private System.Windows.Forms.GroupBox InputParametersGroupBox;
         private System.Windows.Forms.Label Mass1Label;
         private System.Windows.Forms.Label SecondSpringStiffnessUnitLabel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label FirstSpringStiffnessUnitLabel;
         private System.Windows.Forms.Label SecondMassUnitLabel;
         private System.Windows.Forms.Label FirstMassUnit;
         private System.Windows.Forms.Label SecondSpringStiffnessLabel;
@@ -685,12 +624,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button CalculateButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

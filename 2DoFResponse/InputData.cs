@@ -379,7 +379,7 @@ namespace _2DoF
         }
 
 
-        public double a1AtFirstNaturalFrequency
+        public double a1AtFirstModeShape
         {
             get
             {
@@ -387,7 +387,7 @@ namespace _2DoF
             }
         }
 
-        public double a2AtFirstNaturalFrequency
+        public double a2AtFirstModeShape
         {
             get
             {
@@ -396,7 +396,7 @@ namespace _2DoF
         }
 
 
-        public double a1AtSecondNaturalFrequency
+        public double a1AtSecondModeShape
         {
             get
             {
@@ -404,16 +404,16 @@ namespace _2DoF
             }
         }
 
-        public double a2AtSecondNaturalFrequnecy
+        public double a2AtSecondModeShape
         {
             get
             {
                 return EigenVector[1, 1];
             }
         }
+
+
         // a2/a1 at First Natural Frequency
-
-
         public double AmplitudeRatio1
         {
             get
@@ -423,14 +423,16 @@ namespace _2DoF
                 double r1 = a21 / a11;
                 double R1 = Math.Round(r1, 4);
 
-                
+
 
 
                 return R1;
             }
         }
 
+
         //a2/a1 at Second Natural Frequency
+
         public double AmplitudeRatio2
         {
             get
@@ -442,6 +444,26 @@ namespace _2DoF
                 return R2;
             }
         }
+
+        ////a1/a2 at First Mode Shape
+
+        //public double AmplitudeRatio1
+        //{
+        //    get
+        //    {
+        //        return a1AtFirstModeShape / a2AtFirstModeShape;
+        //    } 
+        //}
+
+        ////a1/a2 at Second Mode
+
+        //public double AmplitudeRatio2
+        //{
+        //    get
+        //    {
+        //        return a1AtSecondModeShape / a2AtSecondModeShape;
+        //    }
+        //}
 
 
 
@@ -471,7 +493,7 @@ namespace _2DoF
                 double sqrtFirstTerm = Math.Pow((AmplitudeRatio2 * InitialConditionX1) - InitialConditionX2, 2);
                 double sqrtSecondTerm = Math.Pow(((AmplitudeRatio2 * InitialConditionXDot1) - InitialConditionXDot2) / NaturalFrequency1, 2);
                 double sqrtTerm = Math.Sqrt(sqrtFirstTerm + sqrtSecondTerm);
-                double firstTerm = a1AtFirstNaturalFrequency / (AmplitudeRatio2 - AmplitudeRatio1);
+                double firstTerm = 1 / (AmplitudeRatio2 - AmplitudeRatio1);
                 return Math.Round(firstTerm * sqrtTerm, 4);
             }
         }
@@ -483,7 +505,7 @@ namespace _2DoF
                 double sqrtFirstTerm = Math.Pow(InitialConditionX2 - (AmplitudeRatio1 * InitialConditionX1), 2);
                 double sqrtSecondTerm = Math.Pow((InitialConditionXDot1 - (AmplitudeRatio1 * InitialConditionXDot1)) / NaturalFrequency2, 2);
                 double sqrtTerm = Math.Sqrt(sqrtFirstTerm + sqrtSecondTerm);
-                double firsTerm = a1AtSecondNaturalFrequency / (AmplitudeRatio2 - AmplitudeRatio1);
+                double firsTerm = 1 / (AmplitudeRatio2 - AmplitudeRatio1);
                 return Math.Round(firsTerm * sqrtTerm, 4);
             }
         }
@@ -551,8 +573,8 @@ namespace _2DoF
 
             foreach (double item in TimeIntervals)
             {
-                double firstTerm = A1 * a1AtFirstNaturalFrequency * Math.Cos((NaturalFrequency1 * item) - Phy1);
-                double secondTerm = A2 * a1AtSecondNaturalFrequency * Math.Cos((NaturalFrequency2 * item) - Phy2);
+                double firstTerm = A1  * Math.Cos((NaturalFrequency1 * item) - Phy1);
+                double secondTerm = A2  * Math.Cos((NaturalFrequency2 * item) - Phy2);
                 double x1 = firstTerm + secondTerm;
                 Body1Displacement.Add(x1);
             }
@@ -576,8 +598,8 @@ namespace _2DoF
 
             foreach (double item in TimeIntervals)
             {
-                double firstTerm = A1 *a2AtFirstNaturalFrequency* Math.Cos((NaturalFrequency1 * item) - Phy1);
-                double secondTerm = A2 *a2AtSecondNaturalFrequnecy* Math.Cos((NaturalFrequency2 * item) - Phy2);
+                double firstTerm = A1 *AmplitudeRatio1* Math.Cos((NaturalFrequency1 * item) - Phy1);
+                double secondTerm = A2 *AmplitudeRatio2* Math.Cos((NaturalFrequency2 * item) - Phy2);
                 double x2 = firstTerm + secondTerm;
                 Body2Displacement.Add(x2);
             }

@@ -11231,6 +11231,24 @@
             For more options and diagnostics consider to use <see cref="T:MathNet.Numerics.Optimization.GoldenSectionMinimizer"/> directly.
             </summary>
         </member>
+        <member name="M:MathNet.Numerics.FindMinimum.OfScalarFunction(System.Func{System.Double,System.Double},System.Double,System.Double,System.Int32)">
+            <summary>
+            Find vector x that minimizes the function f(x) using the Nelder-Mead Simplex algorithm.
+            For more options and diagnostics consider to use <see cref="T:MathNet.Numerics.Optimization.NelderMeadSimplex"/> directly.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.FindMinimum.OfFunction(System.Func{System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Find vector x that minimizes the function f(x) using the Nelder-Mead Simplex algorithm.
+            For more options and diagnostics consider to use <see cref="T:MathNet.Numerics.Optimization.NelderMeadSimplex"/> directly.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.FindMinimum.OfFunction(System.Func{System.Double,System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Find vector x that minimizes the function f(x) using the Nelder-Mead Simplex algorithm.
+            For more options and diagnostics consider to use <see cref="T:MathNet.Numerics.Optimization.NelderMeadSimplex"/> directly.
+            </summary>
+        </member>
         <member name="M:MathNet.Numerics.FindMinimum.OfFunction(System.Func{MathNet.Numerics.LinearAlgebra.Vector{System.Double},System.Double},MathNet.Numerics.LinearAlgebra.Vector{System.Double},System.Double,System.Int32)">
             <summary>
             Find vector x that minimizes the function f(x) using the Nelder-Mead Simplex algorithm.
@@ -11310,6 +11328,20 @@
             Find all three complex roots of the cubic equation d + c*x + b*x^2 + a*x^3 = 0.
             Note the special coefficient order ascending by exponent (consistent with polynomials).
             </summary>
+        </member>
+        <member name="M:MathNet.Numerics.FindRoots.Polynomial(System.Double[])">
+            <summary>
+            Find all roots of a polynomial by calculating the characteristic polynomial of the companion matrix
+            </summary>
+            <param name="coefficients">The coefficients of the polynomial in ascending order, e.g. new double[] {5, 0, 2} = "5 + 0 x^1 + 2 x^2"</param>
+            <returns>The roots of the polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.FindRoots.Polynomial(MathNet.Numerics.Polynomial)">
+            <summary>
+            Find all roots of a polynomial by calculating the characteristic polynomial of the companion matrix
+            </summary>
+            <param name="polynomial">The polynomial.</param>
+            <returns>The roots of the polynomial</returns>
         </member>
         <member name="M:MathNet.Numerics.FindRoots.ChebychevPolynomialFirstKind(System.Int32,System.Double,System.Double)">
             <summary>
@@ -11399,7 +11431,7 @@
         <member name="M:MathNet.Numerics.Fit.Polynomial(System.Double[],System.Double[],System.Int32,MathNet.Numerics.LinearRegression.DirectRegressionMethod)">
             <summary>
             Least-Squares fitting the points (x,y) to a k-order polynomial y : x -> p0 + p1*x + p2*x^2 + ... + pk*x^k,
-            returning its best fitting parameters as [p0, p1, p2, ..., pk] array, compatible with Evaluate.Polynomial.
+            returning its best fitting parameters as [p0, p1, p2, ..., pk] array, compatible with Polynomial.Evaluate.
             A polynomial with order/degree k has (k+1) coefficients and thus requires at least (k+1) samples.
             </summary>
         </member>
@@ -11413,7 +11445,7 @@
         <member name="M:MathNet.Numerics.Fit.PolynomialWeighted(System.Double[],System.Double[],System.Double[],System.Int32)">
             <summary>
             Weighted Least-Squares fitting the points (x,y) and weights w to a k-order polynomial y : x -> p0 + p1*x + p2*x^2 + ... + pk*x^k,
-            returning its best fitting parameters as [p0, p1, p2, ..., pk] array, compatible with Evaluate.Polynomial.
+            returning its best fitting parameters as [p0, p1, p2, ..., pk] array, compatible with Polynomial.Evaluate.
             A polynomial with order/degree k has (k+1) coefficients and thus requires at least (k+1) samples.
             </summary>
         </member>
@@ -11507,6 +11539,42 @@
             <summary>
             Least-Squares fitting the points (T,y) = (T,y) to an arbitrary linear combination y : X -> p0*f0(T) + p1*f1(T) + ... + pk*fk(T),
             returning a function y' for the best fitting combination.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.Curve(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double},System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p, x),
+            returning its best fitting parameter p.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.Curve(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p0, p1, x),
+            returning its best fitting parameter p0 and p1.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.Curve(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p0, p1, p2, x),
+            returning its best fitting parameter p0, p1 and p2.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.CurveFunc(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double},System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p, x),
+            returning a function y' for the best fitting curve.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.CurveFunc(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p0, p1, x),
+            returning a function y' for the best fitting curve.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Fit.CurveFunc(System.Double[],System.Double[],System.Func{System.Double,System.Double,System.Double,System.Double,System.Double},System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Non-linear least-squares fitting the points (x,y) to an arbitrary function y : x -> f(p0, p1, p2, x),
+            returning a function y' for the best fitting curve.
             </summary>
         </member>
         <member name="M:MathNet.Numerics.Generate.Map``2(``0[],System.Func{``0,``1})">
@@ -12074,7 +12142,7 @@
             <summary>
             Packed Real-Complex forward Fast Fourier Transform (FFT) to arbitrary-length sample vectors.
             Since for real-valued time samples the complex spectrum is conjugate-even (symmetry),
-            the spectrum can be fully reconstructed form the positive frequencies only (first half).
+            the spectrum can be fully reconstructed from the positive frequencies only (first half).
             The data array needs to be N+2 (if N is even) or N+1 (if N is odd) long in order to support such a packed spectrum.
             </summary>
             <param name="data">Data array of length N+2 (if N is even) or N+1 (if N is odd).</param>
@@ -39208,6 +39276,347 @@
             is permuted to location indices[i].</param>
             <returns>True if <paramref name="indices"/> represents a proper permutation, <c>false</c> otherwise.</returns>
         </member>
+        <member name="T:MathNet.Numerics.Polynomial">
+            <summary>
+            A single-variable polynomial with real-valued coefficients and non-negative exponents.
+            </summary>
+        </member>
+        <member name="P:MathNet.Numerics.Polynomial.Coefficients">
+            <summary>
+            The coefficients of the polynomial in a
+            </summary>
+        </member>
+        <member name="F:MathNet.Numerics.Polynomial.VariableName">
+            <summary>
+            Only needed for the ToString method
+            </summary>
+        </member>
+        <member name="P:MathNet.Numerics.Polynomial.Degree">
+            <summary>
+            Degree of the polynomial, i.e. the largest monomial exponent. For example, the degree of y=x^2+x^5 is 5, for y=3 it is 0.
+            The null-polynomial returns degree -1 because the correct degree, negative infinity, cannot be represented by integers.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.#ctor(System.Int32)">
+            <summary>
+            Create a zero-polynomial with a coefficient array of the given length.
+            An array of length N can support polynomials of a degree of at most N-1.
+            </summary>
+            <param name="n">Length of the coefficient array</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.#ctor">
+            <summary>
+            Create a zero-polynomial
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.#ctor(System.Double)">
+            <summary>
+            Create a constant polynomial.
+            Example: 3.0 -> "p : x -> 3.0"
+            </summary>
+            <param name="coefficient">The coefficient of the "x^0" monomial.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.#ctor(System.Double[])">
+            <summary>
+            Create a polynomial with the provided coefficients (in ascending order, where the index matches the exponent).
+            Example: {5, 0, 2} -> "p : x -> 5 + 0 x^1 + 2 x^2".
+            </summary>
+            <param name="coefficients">Polynomial coefficients as array</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.#ctor(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Create a polynomial with the provided coefficients (in ascending order, where the index matches the exponent).
+            Example: {5, 0, 2} -> "p : x -> 5 + 0 x^1 + 2 x^2".
+            </summary>
+            <param name="coefficients">Polynomial coefficients as enumerable</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Fit(System.Double[],System.Double[],System.Int32,MathNet.Numerics.LinearRegression.DirectRegressionMethod)">
+            <summary>
+            Least-Squares fitting the points (x,y) to a k-order polynomial y : x -> p0 + p1*x + p2*x^2 + ... + pk*x^k
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Double,System.Double[])">
+            <summary>
+            Evaluate a polynomial at point x.
+            Coefficients are ordered ascending by power with power k at index k.
+            Example: coefficients [3,-1,2] represent y=2x^2-x+3.
+            </summary>
+            <param name="z">The location where to evaluate the polynomial at.</param>
+            <param name="coefficients">The coefficients of the polynomial, coefficient for power k at index k.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Numerics.Complex,System.Double[])">
+            <summary>
+            Evaluate a polynomial at point x.
+            Coefficients are ordered ascending by power with power k at index k.
+            Example: coefficients [3,-1,2] represent y=2x^2-x+3.
+            </summary>
+            <param name="z">The location where to evaluate the polynomial at.</param>
+            <param name="coefficients">The coefficients of the polynomial, coefficient for power k at index k.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Numerics.Complex,System.Numerics.Complex[])">
+            <summary>
+            Evaluate a polynomial at point x.
+            Coefficients are ordered ascending by power with power k at index k.
+            Example: coefficients [3,-1,2] represent y=2x^2-x+3.
+            </summary>
+            <param name="z">The location where to evaluate the polynomial at.</param>
+            <param name="coefficients">The coefficients of the polynomial, coefficient for power k at index k.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Double)">
+            <summary>
+            Evaluate a polynomial at point x.
+            </summary>
+            <param name="z">The location where to evaluate the polynomial at.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Numerics.Complex)">
+            <summary>
+            Evaluate a polynomial at point x.
+            </summary>
+            <param name="z">The location where to evaluate the polynomial at.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Evaluate a polynomial at points z.
+            </summary>
+            <param name="z">The locations where to evaluate the polynomial at.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Evaluate(System.Collections.Generic.IEnumerable{System.Numerics.Complex})">
+            <summary>
+            Evaluate a polynomial at points z.
+            </summary>
+            <param name="z">The locations where to evaluate the polynomial at.</param>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Roots">
+            <summary>
+            Calculates the complex roots of the Polynomial by eigenvalue decomposition
+            </summary>
+            <returns>a vector of complex numbers with the roots</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.EigenvalueMatrix">
+            <summary>
+            Get the eigenvalue matrix A of this polynomial such that eig(A) = roots of this polynomial.
+            </summary>
+            <returns>Eigenvalue matrix A</returns>
+            <note>This matrix is similar to the companion matrix of this polynomial, in such a way, that it's transpose is the columnflip of the companion matrix</note>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Add(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Addition of two Polynomials (point-wise).
+            </summary>
+            <param name="a">Left Polynomial</param>
+            <param name="b">Right Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Add(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Addition of a polynomial and a scalar.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Subtract(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Subtraction of two Polynomials (point-wise).
+            </summary>
+            <param name="a">Left Polynomial</param>
+            <param name="b">Right Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Subtract(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Addition of a scalar from a polynomial.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Subtract(System.Double,MathNet.Numerics.Polynomial)">
+            <summary>
+            Addition of a polynomial from a scalar.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Negate(MathNet.Numerics.Polynomial)">
+            <summary>
+            Negation of a polynomial.
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Multiply(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Multiplies a polynomial by a polynomial (convolution)
+            </summary>
+            <param name="a">Left polynomial</param>
+            <param name="b">Right polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Multiply(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Scales a polynomial by a scalar
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.Divide(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Scales a polynomial by division by a scalar
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.DivideRemainder(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Euclidean long division of two polynomials, returning the quotient q and remainder r of the two polynomials a and b such that a = q*b + r
+            </summary>
+            <param name="a">Left polynomial</param>
+            <param name="b">Right polynomial</param>
+            <returns>A tuple holding quotient in first and remainder in second</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.PointwiseDivide(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Point-wise division of two Polynomials
+            </summary>
+            <param name="a">Left Polynomial</param>
+            <param name="b">Right Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.PointwiseMultiply(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Point-wise multiplication of two Polynomials
+            </summary>
+            <param name="a">Left Polynomial</param>
+            <param name="b">Right Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.DivideRemainder(MathNet.Numerics.Polynomial)">
+            <summary>
+            Division of two polynomials returning the quotient-with-remainder of the two polynomials given
+            </summary>
+            <param name="b">Right polynomial</param>
+            <returns>A tuple holding quotient in first and remainder in second</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Addition(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Addition of two Polynomials (piecewise)
+            </summary>
+            <param name="a">Left polynomial</param>
+            <param name="b">Right polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Addition(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            adds a scalar to a polynomial.
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Addition(System.Double,MathNet.Numerics.Polynomial)">
+            <summary>
+            adds a scalar to a polynomial.
+            </summary>
+            <param name="k">Scalar value</param>
+            <param name="a">Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Subtraction(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Subtraction of two polynomial.
+            </summary>
+            <param name="a">Left polynomial</param>
+            <param name="b">Right polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Subtraction(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Subtracts a scalar from a polynomial.
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Subtraction(System.Double,MathNet.Numerics.Polynomial)">
+            <summary>
+            Subtracts a polynomial from a scalar.
+            </summary>
+            <param name="k">Scalar value</param>
+            <param name="a">Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_UnaryNegation(MathNet.Numerics.Polynomial)">
+            <summary>
+            Negates a polynomial.
+            </summary>
+            <param name="a">Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Multiply(MathNet.Numerics.Polynomial,MathNet.Numerics.Polynomial)">
+            <summary>
+            Multiplies a polynomial by a polynomial (convolution).
+            </summary>
+            <param name="a">Left polynomial</param>
+            <param name="b">Right polynomial</param>
+            <returns>resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Multiply(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Multiplies a polynomial by a scalar.
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Multiply(System.Double,MathNet.Numerics.Polynomial)">
+            <summary>
+            Multiplies a polynomial by a scalar.
+            </summary>
+            <param name="k">Scalar value</param>
+            <param name="a">Polynomial</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.op_Division(MathNet.Numerics.Polynomial,System.Double)">
+            <summary>
+            Divides a polynomial by scalar value.
+            </summary>
+            <param name="a">Polynomial</param>
+            <param name="k">Scalar value</param>
+            <returns>Resulting Polynomial</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToString">
+            <summary>
+            Format the polynomial in ascending order, e.g. "4.3 + 2.0x^2 - x^3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToStringDescending">
+            <summary>
+            Format the polynomial in descending order, e.g. "x^3 + 2.0x^2 - 4.3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToString(System.String)">
+            <summary>
+            Format the polynomial in ascending order, e.g. "4.3 + 2.0x^2 - x^3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToStringDescending(System.String)">
+            <summary>
+            Format the polynomial in descending order, e.g. "x^3 + 2.0x^2 - 4.3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToString(System.IFormatProvider)">
+            <summary>
+            Format the polynomial in ascending order, e.g. "4.3 + 2.0x^2 - x^3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToStringDescending(System.IFormatProvider)">
+            <summary>
+            Format the polynomial in descending order, e.g. "x^3 + 2.0x^2 - 4.3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToString(System.String,System.IFormatProvider)">
+            <summary>
+            Format the polynomial in ascending order, e.g. "4.3 + 2.0x^2 - x^3".
+            </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Polynomial.ToStringDescending(System.String,System.IFormatProvider)">
+            <summary>
+            Format the polynomial in descending order, e.g. "x^3 + 2.0x^2 - 4.3".
+            </summary>
+        </member>
         <member name="T:MathNet.Numerics.Precision">
             <summary>
             Utilities for working with floating point numbers.
@@ -48125,6 +48534,39 @@
             <summary>
             A class with correlation measures between two datasets.
             </summary>
+        </member>
+        <member name="M:MathNet.Numerics.Statistics.Correlation.Auto(System.Double[])">
+            <summary>
+            Auto-correlation function (ACF) based on FFT for all possible lags k.
+            </summary>
+            <param name="x">Data array to calculate auto correlation for.</param>
+            <returns>An array with the ACF as a function of the lags k.</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Statistics.Correlation.Auto(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            Auto-correlation function (ACF) based on FFT for lags between kMin and kMax.
+            </summary>
+            <param name="x">The data array to calculate auto correlation for.</param>
+            <param name="kMax">Max lag to calculate ACF for must be positive and smaller than x.Length.</param>
+            <param name="kMin">Min lag to calculate ACF for (0 = no shift with acf=1) must be zero or positive and smaller than x.Length.</param>
+            <returns>An array with the ACF as a function of the lags k.</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Statistics.Correlation.Auto(System.Double[],System.Int32[])">
+            <summary>
+            Auto-correlation function based on FFT for lags k.
+            </summary>
+            <param name="x">The data array to calculate auto correlation for.</param>
+            <param name="k">Array with lags to calculate ACF for.</param>
+            <returns>An array with the ACF as a function of the lags k.</returns>
+        </member>
+        <member name="M:MathNet.Numerics.Statistics.Correlation.AutoCorrelationFft(System.Double[],System.Int32,System.Int32)">
+            <summary>
+            The internal method for calculating the auto-correlation.
+            </summary>
+            <param name="x">The data array to calculate auto-correlation for</param>
+            <param name="kLow">Min lag to calculate ACF for (0 = no shift with acf=1) must be zero or positive and smaller than x.Length</param>
+            <param name="kHigh">Max lag (EXCLUSIVE) to calculate ACF for must be positive and smaller than x.Length</param>
+            <returns>An array with the ACF as a function of the lags k.</returns>
         </member>
         <member name="M:MathNet.Numerics.Statistics.Correlation.Pearson(System.Collections.Generic.IEnumerable{System.Double},System.Collections.Generic.IEnumerable{System.Double})">
             <summary>
